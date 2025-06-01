@@ -14,7 +14,7 @@ public class Scripture
         _words = _verse.Split(' ').ToList();
     }
 
-
+// replaces word with _ and returns it
     public string ReplaceWithBlank(Word word)
     {
         Random rnd = new Random();
@@ -42,7 +42,7 @@ public class Scripture
         }
         return fVerse;
     }
-
+//prints verse in a organized format for the terminal
     public void PrintVerse()
     {
         int count = 0;

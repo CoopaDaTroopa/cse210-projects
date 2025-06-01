@@ -12,10 +12,11 @@ public class Word
     {
         _word = word;
     }
+    //returns a a string of _ with the same characters as word
     public string giveBlank()
     {
         string blank = "";
-        for (int i = 1; i <= _word.Length ; i++)
+        for (int i = 1; i <= _word.Length; i++)
         {
             blank += "_";
         }

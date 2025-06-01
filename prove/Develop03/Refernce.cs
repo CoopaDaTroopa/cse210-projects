@@ -17,7 +17,7 @@ public class Reference
         _verseNumToo = verseNumToo;
     }
 
-
+// returns ref
     public string giveRef()
     {
         string reference = "";
