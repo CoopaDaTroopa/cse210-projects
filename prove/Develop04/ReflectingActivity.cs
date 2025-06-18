@@ -15,8 +15,9 @@ public class ReflectingActivity : Activity
         Random rand = new Random();
         int r = rand.Next(_prompts.Count());
         StartMessage();
-        Console.WriteLine("How many seconds would you like ro run this activity? ");
-        _time = int.Parse(Console.ReadLine());
+        //Console.WriteLine("How many seconds would you like ro run this activity? ");
+        //_time = int.Parse(Console.ReadLine());
+        RequestTime();
         while (_time < 20)
         {
             Console.WriteLine("Youre gonna need more time then that!(I know your mind) Please choose another count: ");

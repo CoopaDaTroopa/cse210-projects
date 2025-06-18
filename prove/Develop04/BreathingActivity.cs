@@ -27,8 +27,9 @@ public class BreathingActivity : Activity
     {
         //this will run a breathing activity with its included functions
         StartMessage();
-        Console.WriteLine("How many seconds would you like to do this activity for?");
-        _time = int.Parse(Console.ReadLine());
+        //Console.WriteLine("How many seconds would you like to do this activity for?");
+        //_time = int.Parse(Console.ReadLine());
+        RequestTime();
         while (_time < 20)
         {
             Console.WriteLine("Youre gonna need more time then that!(I know your mind) Please choose another count: ");

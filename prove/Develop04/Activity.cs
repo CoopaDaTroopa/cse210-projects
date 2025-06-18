@@ -48,4 +48,11 @@ public class Activity
         }
         Console.WriteLine();
     }
+
+
+    public void RequestTime()
+    {
+         Console.WriteLine("How many seconds would you like to do this activity for?");
+        _time = int.Parse(Console.ReadLine());
+    }
 } 

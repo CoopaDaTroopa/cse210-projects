@@ -20,8 +20,9 @@ public class ListingActivity : Activity
         int pressed = 0;
         Random rand = new Random();
         int r = rand.Next(_questions.Count());
-        Console.WriteLine("How many seconds would you like to run this activity? ");
-        _time = int.Parse(Console.ReadLine());
+        //Console.WriteLine("How many seconds would you like to run this activity? ");
+        //_time = int.Parse(Console.ReadLine());
+        RequestTime();
         Console.WriteLine(_questions[r]);
         Animation(4);
         Console.WriteLine("Please begin typing your response. Press enter after every response.");
