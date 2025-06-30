@@ -61,19 +61,14 @@ public class CheckListGoal : Goal
 
 
 
-    public override void Save(string fileName)
+    public override string Save()
     {
-        File.Create(fileName).Close();
-        using (StreamWriter sw = File.AppendText(fileName))
-        {
-            sw.WriteLine($"{GetAType()}@{GetName()}@{GetDes()}@{GetPoints()}@{_list}@{_finishPoints}@{_counter}");
-            //string activityType, string name, string description, int points, int list, int fPoints, int counter
-        }
+        return $"{GetAType()}@{GetName()}@{GetDes()}@{GetPoints()}@{_list}@{_finishPoints}@{_counter}";
     }
     
     public static CheckListGoal LoadCG(string info)
     {
-        List<string> infoList = new List<string>(info.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // i was lazy and made AI make this for me
+        List<string> infoList = new List<string>(info.Split(new[] { '@' }, StringSplitOptions.RemoveEmptyEntries)); // i was lazy and made AI make this for me
         CheckListGoal g = new CheckListGoal(infoList[0], infoList[1], infoList[2], int.Parse(infoList[3]), int.Parse(infoList[4]), int.Parse(infoList[5]), int.Parse(infoList[6]));
         return g;
     }

@@ -9,10 +9,10 @@ class Program
         bool running = true;
         int score = 0;
         Console.WriteLine("Welcome!");
-        string menu = "Menu:\n1. Create New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Quit";
+        //string menu = $"Score: {score}\nMenu:\n1. Create New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Quit";
         while (running)
         {
-            Console.WriteLine(menu);
+            Console.WriteLine($"Score: {score}\nMenu:\n1. Create New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Quit");
             string ans = Console.ReadLine();
             if (ans == "1")
             {
@@ -33,17 +33,17 @@ class Program
                 using (StreamWriter sw = File.AppendText(fileName))
                 {
                     sw.WriteLine($"{score}");
-                }
-                foreach (Goal g in goals)
-                {
-                    g.Save(fileName);
+                    foreach (Goal g in goals)
+                    {
+                        sw.WriteLine(g.Save());
+                    }
                 }
             }
             else if (ans == "4")
             {
                 Console.WriteLine("What file would you load?");
                 string fileName = Console.ReadLine();
-                //score = int.Parse(File.ReadLines(fileName).First());
+                score = int.Parse(File.ReadLines(fileName).First());
                 goals = Goal.Load(fileName);
             }
             else if (ans == "5")

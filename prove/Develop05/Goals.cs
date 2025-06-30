@@ -101,28 +101,28 @@ public abstract class Goal
     public virtual void DisplayGoal() { }
 
 
-    public virtual void Save(string fileName)
+    public virtual string Save()
     {
-
+        return "";
     }
     public static List<Goal> Load(string fileName)
     {
         List<Goal> list = new List<Goal>();
         List<string> gList = new List<string>(File.ReadAllLines(fileName));
-        //gList.RemoveAt(0);
+        gList.RemoveAt(0);
         string type = "";
         foreach (string line in gList)
         {
-            type = line.Substring(0, line.IndexOf(" "));
-            if (type == "SimpleGoal")
+            type = line.Substring(0, line.IndexOf("@"));
+            if (type == "Simple Goal")
             {
                 list.Add(SimpleGoal.LoadSG(line));
             }
-            else if (type == "CheckListGoal")
+            else if (type == "CheckList Goal")
             {
                 list.Add(CheckListGoal.LoadCG(line));
             }
-            else if (type == "EternalGoal")
+            else if (type == "Eternal Goal")
             {
                 list.Add(EternalGoal.LoadEG(line));
             }

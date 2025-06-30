@@ -35,24 +35,19 @@ public class SimpleGoal : Goal
     }
 
 
-    public override void Save(string fileName)
+    public override string Save()
     {
-        File.Create(fileName).Close();
-        bool c;
+        string c = "";
         if (_complete == false)
         {
-            c = false;
+            c = "false";
         }
         else
         {
-            c = true;
+            c = "true";
         }
         //File.AppendAllText(fileName, $"{GetAType()}@{GetName()}@{GetDes()}@{GetPoints()}@{c}" + Environment.NewLine);
-        using (StreamWriter sw = File.AppendText(fileName))
-        {
-            sw.Write($"{GetAType()}@{GetName()}@{GetDes()}@{GetPoints()}@{c}");
-            //string activityType, string name, string description, int points, bool complete
-        }
+        return $"{GetAType()}@{GetName()}@{GetDes()}@{GetPoints()}@{c}";
     }
 
 
