@@ -56,7 +56,7 @@ class Program
                 {
                     if (g.GetName() == name)
                     {
-                        score = goals[index].RecordGoal();
+                        score += goals[index].RecordGoal();
                         goals[index].DisplayGoal();
                         Thread.Sleep(1000);
                         happened = true;
